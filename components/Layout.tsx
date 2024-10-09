@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Layout.module.css';
+import Link from 'next/link';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -9,13 +10,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <nav className={styles.nav}>
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </nav>
@@ -25,15 +26,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className={styles.footerContent}>
           <p>© 2024 My Blog</p>
           <div className={styles.socialMedia}>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
               Twitter
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            </Link>
+            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               Facebook
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            </Link>
+            <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
               Instagram
-            </a>
+            </Link>
           </div>
         </div>
       </footer>

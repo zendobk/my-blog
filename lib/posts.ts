@@ -26,3 +26,24 @@ export const getPosts = (): PostType[] => {
 
   return posts;
 };
+
+export const getPost = (id: string): PostType => {
+  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+
+  return {
+    id,
+    title: data.title,
+    content,
+  };
+};
+
+export const getPaths = () => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const paths = fileNames.map((fileName) => ({
+    params: { id: fileName.replace(/\.md$/, '') },
+  }));
+
+  return paths;
+};

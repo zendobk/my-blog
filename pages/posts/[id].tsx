@@ -1,6 +1,6 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import Layout from '@/components/Layout';
-import { getPosts, PostType } from '@/lib/posts';
+import { getPost, getPaths, PostType } from '@/lib/posts';
 
 interface PostProps {
   post: PostType;
@@ -9,24 +9,25 @@ interface PostProps {
 const PostPage: React.FC<PostProps> = ({ post }) => {
   return (
     <Layout>
-      <h1>{post.title}</h1>
-      <p>Post content goes here...</p>
+      <article className="prose lg:prose-xl mx-auto my-8">
+        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+        <div className="prose prose-lg" dangerouslySetInnerHTML={{ __html: post.content }} />
+      </article>
     </Layout>
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getPosts();
-  const paths = posts.map((post) => ({
-    params: { id: post.id },
-  }));
+export const getStaticPaths = async () => {
+  const paths = getPaths();
 
-  return { paths, fallback: false };
+  return {
+    paths,
+    fallback: false,
+  };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const posts = getPosts();
-  const post = posts.find((post) => post.id === params?.id);
+  const post = getPost(params?.id as string);
 
   return {
     props: {
