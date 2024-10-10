@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { marked } from 'marked';
 
 export interface PostType {
   id: string;
@@ -10,7 +11,7 @@ export interface PostType {
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-export const getPosts = (): PostType[] => {
+export const getPosts = () => {
   const fileNames = fs.readdirSync(postsDirectory);
   const posts = fileNames.map((fileName) => {
     const fullPath = path.join(postsDirectory, fileName);
@@ -27,15 +28,16 @@ export const getPosts = (): PostType[] => {
   return posts;
 };
 
-export const getPost = (id: string): PostType => {
+export const getPost = (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-
+  const contentHtml = marked(content);
+  console.log('contentHtml: ', contentHtml);
   return {
     id,
     title: data.title,
-    content,
+    content: contentHtml,
   };
 };
 
