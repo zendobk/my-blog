@@ -33,7 +33,7 @@ export const getPost = (id: string) => {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   const contentHtml = marked(content);
-  console.log('contentHtml: ', contentHtml);
+
   return {
     id,
     title: data.title,
