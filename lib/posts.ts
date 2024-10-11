@@ -35,7 +35,6 @@ export const getPost = (id: string) => {
   const contentHtml = marked(content);
 
   return {
-    id,
     title: data.title,
     content: contentHtml,
   };

@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next';
 import Layout from '@/components/Layout';
 import { getPost, getPaths, PostType } from '@/lib/posts';
+import PostDetail from '@/components/PostDetail';
 
 interface PostProps {
   post: PostType;
@@ -9,10 +10,7 @@ interface PostProps {
 const PostPage: React.FC<PostProps> = ({ post }) => {
   return (
     <Layout>
-      <article className="prose lg:prose-xl mx-auto my-8">
-        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
-        <div className="prose prose-lg" dangerouslySetInnerHTML={{ __html: post.content }} />
-      </article>
+      <PostDetail title={post.title} content={post.content} />
     </Layout>
   );
 };

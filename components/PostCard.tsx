@@ -1,7 +1,6 @@
 import React from 'react';
-// import styles from './PostCard.module.css';
 
-interface PostProps {
+interface PostCardProps {
   id: string;
   title: string;
   content: string;
@@ -9,7 +8,7 @@ interface PostProps {
 
 import { Card, CardContent, Typography, Link as MuiLink } from '@mui/material';
 
-const PostCard: React.FC<PostProps> = ({ id, title, content }) => {
+const PostCard: React.FC<PostCardProps> = ({ id, title, content }) => {
   return (
     <Card variant="outlined" sx={{ marginBottom: 2 }}>
       <CardContent>
