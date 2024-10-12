@@ -15,9 +15,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <li>
               <Link href="/about">About</Link>
             </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
           </ul>
         </nav>
       </header>
@@ -26,14 +23,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className={styles.footerContent}>
           <p>© 2024 My Blog</p>
           <div className={styles.socialMedia}>
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              Twitter
+            <Link href="https://www.linkedin.com/in/zendobk/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
             </Link>
-            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://facebook.com/zendobk/" target="_blank" rel="noopener noreferrer">
               Facebook
-            </Link>
-            <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              Instagram
             </Link>
           </div>
         </div>

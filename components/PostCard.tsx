@@ -17,9 +17,9 @@ const PostCard: React.FC<PostCardProps> = ({ id, title, excerpt }) => {
           <MuiLink href={`/posts/${id}`} underline="hover">
             {title}
           </MuiLink>
-          <Typography variant="body2" color="text.secondary" component="div">
-            <div className="markdown-body" dangerouslySetInnerHTML={{ __html: excerpt }} />
-          </Typography>
+        </Typography>
+        <Typography variant="body2" color="text.secondary" component="div">
+          <div className="markdown-body" dangerouslySetInnerHTML={{ __html: excerpt }} />
         </Typography>
       </CardContent>
     </Card>
