@@ -11,7 +11,7 @@ const HomePage: React.FC<HomeProps> = ({ posts }) => {
     <Layout>
       <ul>
         {posts.map((post) => (
-          <PostCard key={post.id} id={post.id} title={post.title} content={post.content} />
+          <PostCard key={post.id} id={post.id} title={post.title} excerpt={post.excerpt} />
         ))}
       </ul>
     </Layout>

@@ -2,8 +2,6 @@
 title: 'Markdown Cheat Sheet'
 ---
 
-Thanks for visiting [The Markdown Guide](https://www.markdownguide.org)!
-
 This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge case, so if you need more information about any of these elements, refer to the reference guides for [basic syntax](https://www.markdownguide.org/basic-syntax/) and [extended syntax](https://www.markdownguide.org/extended-syntax/).
 
 ## Basic Syntax
@@ -69,7 +67,7 @@ These elements extend the basic syntax by adding additional features. Not all Ma
 
 ### Fenced Code Block
 
-```
+```json
 {
   "firstName": "John",
   "lastName": "Smith",
@@ -110,12 +108,12 @@ That is so funny! :joy:
 
 ### Highlight
 
-I need to highlight these ==very important words==.
+I need to highlight these <mark>very important words</mark>.
 
 ### Subscript
 
-H~2~O
+H<sub>2</sub>O
 
 ### Superscript
 
-X^2^
+X<sup>2</sup>

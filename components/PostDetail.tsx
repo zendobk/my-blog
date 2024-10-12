@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PostDetail.module.css';
+import 'github-markdown-css/github-markdown.css';
 
 interface PostDetailProps {
   title: string;
@@ -17,8 +17,9 @@ const PostDetail: React.FC<PostDetailProps> = ({ title, content }) => {
             <MuiLink href="" underline="hover">
               {title}
             </MuiLink>
+            <div style={{ padding: 10 }} />
             <Typography variant="body2" color="text.secondary" component="div">
-              <div className={styles.md} dangerouslySetInnerHTML={{ __html: content }} />
+              <div className="markdown-body" dangerouslySetInnerHTML={{ __html: content }} />
             </Typography>
           </Typography>
         </CardContent>

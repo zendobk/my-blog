@@ -6,10 +6,16 @@ import { marked } from 'marked';
 export interface PostType {
   id: string;
   title: string;
+  excerpt: string;
   content: string;
 }
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+
+marked.setOptions({
+  async: false,
+  gfm: true,
+});
 
 export const getPosts = () => {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -17,11 +23,12 @@ export const getPosts = () => {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
-
+    const html = marked(content) as string;
+    const excerpt = html.length > 200 ? `${html.substring(0, 200)}...` : html;
     return {
       id: fileName.replace(/\.md$/, ''),
       title: data.title,
-      content: content,
+      excerpt,
     };
   });
 
@@ -32,11 +39,10 @@ export const getPost = (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-  const contentHtml = marked(content);
-
+  const html = marked(content) as string;
   return {
     title: data.title,
-    content: contentHtml,
+    content: html,
   };
 };
 

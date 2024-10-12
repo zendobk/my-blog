@@ -1,14 +1,15 @@
 import React from 'react';
+import 'github-markdown-css/github-markdown.css';
 
 interface PostCardProps {
   id: string;
   title: string;
-  content: string;
+  excerpt: string;
 }
 
 import { Card, CardContent, Typography, Link as MuiLink } from '@mui/material';
 
-const PostCard: React.FC<PostCardProps> = ({ id, title, content }) => {
+const PostCard: React.FC<PostCardProps> = ({ id, title, excerpt }) => {
   return (
     <Card variant="outlined" sx={{ marginBottom: 2 }}>
       <CardContent>
@@ -16,8 +17,8 @@ const PostCard: React.FC<PostCardProps> = ({ id, title, content }) => {
           <MuiLink href={`/posts/${id}`} underline="hover">
             {title}
           </MuiLink>
-          <Typography variant="body2" color="text.secondary">
-            {content.length > 100 ? `${content.substring(0, 100)}...` : content}
+          <Typography variant="body2" color="text.secondary" component="div">
+            <div className="markdown-body" dangerouslySetInnerHTML={{ __html: excerpt }} />
           </Typography>
         </Typography>
       </CardContent>
