@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { Typography, Container, Divider } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
 
 const About: React.FC = () => {

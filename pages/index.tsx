@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout';
 import PostCard from '@/components/PostCard';
 import { getPosts, PostType } from '@/lib/posts';
+import { GetStaticProps } from 'next';
 
 interface HomeProps {
   posts: PostType[];
@@ -18,7 +19,7 @@ const HomePage: React.FC<HomeProps> = ({ posts }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = getPosts();
 
   return {
