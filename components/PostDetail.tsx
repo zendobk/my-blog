@@ -6,25 +6,23 @@ interface PostDetailProps {
   content: string;
 }
 
-import { Card, CardContent, Typography, Link as MuiLink } from '@mui/material';
+import { Card, CardContent, Typography } from '@mui/material';
 
 const PostDetail: React.FC<PostDetailProps> = ({ title, content }) => {
   return (
-    <article>
-      <Card variant="outlined" sx={{ marginBottom: 2 }}>
-        <CardContent>
-          <Typography variant="h5" component="div">
-            <MuiLink href="" underline="hover">
-              {title}
-            </MuiLink>
-            <div style={{ padding: 10 }} />
-            <Typography variant="body2" color="text.secondary" component="div">
-              <div className="markdown-body" dangerouslySetInnerHTML={{ __html: content }} />
-            </Typography>
-          </Typography>
-        </CardContent>
-      </Card>
-    </article>
+    <Card variant="outlined" sx={{ marginBottom: 2 }} component="article">
+      <CardContent>
+        <Typography variant="h4">{title}</Typography>
+        <div style={{ padding: 10 }} />
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          // component="div"
+          className="markdown-body"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      </CardContent>
+    </Card>
   );
 };
 

@@ -23,15 +23,14 @@ export const getPosts = () => {
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
-    const html = marked(content) as string;
-    const excerpt = html.length > 200 ? `${html.substring(0, 200)}...` : html;
+    const excerpt = content.length > 200 ? `${content.substring(0, 200)}...` : content;
+    const html = marked(excerpt) as string;
     return {
       id: fileName.replace(/\.md$/, ''),
       title: data.title,
-      excerpt,
+      excerpt: html,
     };
   });
-
   return posts;
 };
 
