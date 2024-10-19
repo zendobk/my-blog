@@ -21,7 +21,7 @@ const PostCard: React.FC<PostCardProps> = ({ id, title, excerpt }) => {
         <Typography
           variant="body2"
           color="text.secondary"
-          // component="div"
+          component="span"
           className="markdown-body"
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />

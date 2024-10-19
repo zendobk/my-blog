@@ -17,7 +17,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ title, content }) => {
         <Typography
           variant="body2"
           color="text.secondary"
-          // component="div"
+          component="span"
           className="markdown-body"
           dangerouslySetInnerHTML={{ __html: content }}
         />
