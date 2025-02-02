@@ -7,26 +7,22 @@ interface PostCardProps {
   excerpt: string;
 }
 
-import { Card, CardContent, Typography, Link } from '@mui/material';
-
 const PostCard: React.FC<PostCardProps> = ({ id, title, excerpt }) => {
   return (
-    <Card variant="outlined" sx={{ marginBottom: 2 }}>
-      <CardContent>
-        <Typography variant="h5">
-          <Link href={`/posts/${id}`} underline="hover">
+    <div style={{ border: '1px solid #e0e0e0', marginBottom: '16px', backgroundColor: 'var(--background)', padding: '16px' }}>
+      <div>
+        <h5 style={{ color: 'var(--foreground)' }}>
+          <a href={`/posts/${id}`} style={{ textDecoration: 'underline' }} className='_title'>
             {title}
-          </Link>
-        </Typography>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          component="span"
+          </a>
+        </h5>
+        <span
           className="markdown-body"
           dangerouslySetInnerHTML={{ __html: excerpt }}
+          style={{ color: 'var(--text-secondary-color)' }}
         />
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 };
 

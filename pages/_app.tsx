@@ -9,7 +9,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>My Blog</title>
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
     </>
   );

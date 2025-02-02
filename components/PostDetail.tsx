@@ -6,23 +6,19 @@ interface PostDetailProps {
   content: string;
 }
 
-import { Card, CardContent, Typography } from '@mui/material';
-
 const PostDetail: React.FC<PostDetailProps> = ({ title, content }) => {
   return (
-    <Card variant="outlined" sx={{ marginBottom: 2 }} component="article">
-      <CardContent>
-        <Typography variant="h4">{title}</Typography>
+    <article style={{ border: '1px solid #e0e0e0', borderRadius: 4, marginBottom: 16, padding: 16 }} >
+      <div>
+        <h4>{title}</h4>
         <div style={{ padding: 10 }} />
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          component="span"
+        <span
+          style={{ color: '#757575' }}
           className="markdown-body"
           dangerouslySetInnerHTML={{ __html: content }}
         />
-      </CardContent>
-    </Card>
+      </div>
+    </article>
   );
 };
 

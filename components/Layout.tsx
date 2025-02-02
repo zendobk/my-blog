@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.layout}>
       <header className={styles.header}>
         <h1 className={styles.h1}>My Blog</h1>
         <nav className={styles.nav}>
@@ -20,9 +20,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </header>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
-        <div className={styles.footerContent}>
+        <div className={styles.footer_content}>
           <p>© 2024 My Blog</p>
-          <div className={styles.socialMedia}>
+          <div className={styles.social_media}>
             <Link href="https://www.linkedin.com/in/zendobk/" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </Link>
