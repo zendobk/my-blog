@@ -61,17 +61,17 @@
 
 /* footer */
 
-.footer_content {
+.footer {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.footer_content p {
+.footer p {
   margin: 0.5rem 0;
 }
 
-.social_media {
+.social {
   display: flex;
   gap: 1rem;
 }

@@ -20,16 +20,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </header>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
-        <div className={styles.footer_content}>
-          <p>© 2024 My Blog</p>
-          <div className={styles.social_media}>
-            <Link href="https://www.linkedin.com/in/zendobk/" target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </Link>
-            <Link href="https://facebook.com/zendobk/" target="_blank" rel="noopener noreferrer">
-              Facebook
-            </Link>
-          </div>
+        <p>© 2024 My Blog</p>
+        <div className={styles.social}>
+          <Link href="https://www.linkedin.com/in/zendobk/" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </Link>
+          <Link href="https://facebook.com/zendobk/" target="_blank" rel="noopener noreferrer">
+            Facebook
+          </Link>
         </div>
       </footer>
     </div>
